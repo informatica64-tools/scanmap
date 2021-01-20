@@ -6,6 +6,7 @@ import sys, os, socket
 def openPorts(host):
     for i in range(1, 65535):
         serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        serverSocket.settimeout(0.01)
         con = serverSocket.connect_ex((host, i))
         if (con == 0):
             print("Port ==>",i,"is Open")
